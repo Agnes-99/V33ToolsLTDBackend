@@ -1,2 +1,13 @@
-package com.v33toolsltd.repository.business;public interface OrderItemRepository {
+package com.v33toolsltd.repository.business;
+
+import com.v33toolsltd.domain.business.OrderItem;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface OrderItemRepository extends JpaRepository<OrderItem, Long> {
+
+    List<OrderItem> findByOrder_Id(Long orderId);
 }
