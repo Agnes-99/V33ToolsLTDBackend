@@ -1,6 +1,5 @@
 package com.v33toolsltd.config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -16,8 +15,9 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedOriginPatterns(
-                                "http://localhost:5173",
-                                "http://localhost:8080"
+                                "http://localhost:5173", // For local Vite development
+                                "http://localhost:8080", // For local testing
+                                "https://*.vercel.app"   // ✅ This allows ALL Vercel preview branches and production deployments!
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
